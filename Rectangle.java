@@ -3,29 +3,41 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package npaint;
+package paint_test_program;
+
+import java.awt.Color;
+import java.awt.Graphics;
 
 /**
  *
- * @author noura
+ * @author user
  */
-public class Rectangle implements Shape{
-    protected int side1;
-    protected int side2;
+public class Rectangle extends Shape {
     
-    @Override
-    public void Draw() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Rectangle()
+    {
+    super();
+    
+    }
+    public Rectangle(int x1,int y1,int x2,int y2,Color color)
+    {
+        super(x1,y1,x2,y2,color);
     }
 
     @Override
-    public void Get_Color() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void draw(Graphics g) {
+       g.setColor (getColor());
+       
+       g.drawRect( getX1(), getY1(), getX2(), getY2() );
     }
-
+    public void fill(Graphics g)
+    {
+        g.fillRect(getX1(),getY1(), getX2(), getY2());
+        
+    }
     @Override
-    public void Get_Area() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    Shape copy() {
+        return new Rectangle(x1,y1,x2,y2,myColor);
     }
     
 }
